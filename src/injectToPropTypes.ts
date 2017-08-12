@@ -9,20 +9,30 @@ const getInfusion = (key, values?) => {
   return { fake: () => ValueGenerators[key](values) };
 };
 
-const injectToPropTypes = propTypes =>
-  _.forOwn(propTypes, (typeFn, key) => {
-    const fn = types => {
-      const foo = typeFn(types);
-      if (foo) {
-        (foo as any).__jestSnapper__ = getInfusion(key, types);
+const mutateWithSnapperObj = (obj: any, key, types?) => {
+  obj.__jestSnapper__ = getInfusion(key, types);
+};
+
+const injectToPropTypes = (propTypes) =>
+  _.forOwn(propTypes, (value, key) => {
+    if (value.isRequired) { 
+      // primitive proptypes
+      mutateWithSnapperObj(value, key);
+      mutateWithSnapperObj(value.isRequired, key);
+      propTypes[key] = value;
+    } else { 
+      // complex proptypes
+      const originalFn = value;
+
+      const wrappedFn = (...args) => {
+        const retValue = originalFn(...args);
+        mutateWithSnapperObj(retValue, key, ...args);
+        mutateWithSnapperObj(retValue.isRequired, key, ...args);
+        return retValue;
       }
-      return foo;
-    };
 
-    // TODO: fix typings
-    (fn as any).__jestSnapper__ = getInfusion(key);
-
-    propTypes[key] = fn;
+      propTypes[key] = wrappedFn;
+    }
   });
 
 export default injectToPropTypes;

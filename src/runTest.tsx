@@ -10,8 +10,6 @@ const runTest = (
   it(description, () => {
     const renderer = ReactTestRenderer.create(<Component {...props} />);
 
-    console.log(Component.pro);
-
     if (state) {
       renderer.getInstance().setState();
     }

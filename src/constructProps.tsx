@@ -34,7 +34,7 @@ export const ValueGenerators = {
 // TODO: fix typings
 const constructProps = (propTypes: any) =>
   _(propTypes)
-    .mapValues(value => (value as any).__jestSnapper__.fake())
+    .mapValues((value, key) => (value as any).__jestSnapper__.fake())
     .value();
 
 export default constructProps;

@@ -28,6 +28,14 @@ ComponentFoo.propTypes = {
   buffalo: PropTypes.arrayOf(PropTypes.number),
   cali: PropTypes.objectOf(PropTypes.element),
   sanfran: PropTypes.node,
+  elpaso: PropTypes.shape({
+    chilli: PropTypes.shape({
+      con: PropTypes.shape({
+        carne: PropTypes.string.isRequired,
+        delisioso: PropTypes.node.isRequired,
+      }),
+    }),
+  }),
 };
 
 test('should render', ComponentFoo, {

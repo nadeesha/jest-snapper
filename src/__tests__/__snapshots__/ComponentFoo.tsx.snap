@@ -28,7 +28,22 @@ exports[`should render 1`] = `
     }
   }
   denver="foo"
+  elpaso={
+    Object {
+      "chilli": Object {
+        "con": Object {
+          "carne": "stringval",
+          "delisioso": <span
+            className="node"
+    >
+            anyValue
+    </span>,
+        },
+      },
+    }
+  }
   foo="stringval"
+  foobarosa={1337}
   idaho="todolo"
   michigan={
     Object {
@@ -73,7 +88,22 @@ exports[`should render 1`] = `
       }
     }
     denver="foo"
+    elpaso={
+      Object {
+        "chilli": Object {
+          "con": Object {
+            "carne": "stringval",
+            "delisioso": <span
+              className="node"
+      >
+              anyValue
+      </span>,
+          },
+        },
+      }
+    }
     foo="stringval"
+    foobarosa={1337}
     idaho="todolo"
     michigan={
       Object {
