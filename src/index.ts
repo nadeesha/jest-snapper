@@ -4,7 +4,7 @@ import * as React from 'React';
 import * as _ from 'lodash';
 import constructProps from './constructProps';
 
-interface IOptions {
+export interface IOptions {
   props?: any;
   state?: any;
 }
