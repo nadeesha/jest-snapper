@@ -4,11 +4,20 @@
 
 ## Introduction
 
-Automatically generate jest based snapshot tests for your React components. 
+Automatically generate jest based snapshot tests for your React components by inferring props through `propTypes` definition.
 
 ## Example
 
-Given your React Component:
+Test happy:
+```js
+// __tests__/SimpleStateless.jsx
+import { test } from 'react-snapper';
+import SimpleStateless from '../SimpleStateless.jsx';
+
+test('should render component', SimpleStateless); // jest-snapper will do  a snapshot test with generated props
+```
+
+Given a sample  your React Component:
 ```jsx
 // SimpleStateless.jsx
 
@@ -26,17 +35,6 @@ SimpleStateless.propTypes = {
   })
 }
 ```
-
-Test happy:
-```js
-// __tests__/SimpleStateless.jsx
-import {test} from 'react-snapper';
-import SimpleStateless from '../SimpleStateless.jsx';
-
-test('should render with default props', SimpleStateless); // jest-snapper will do  a snapshot test with generated props
-```
-
-
 
 ## Installation and Configuration
 
@@ -115,4 +113,5 @@ test('with a state change', MyComponent, {
 To minimize the effort needed to introduce this library to an existing codebase, I've made the decision to inject fake data generators (yes, like a cowboy) into `PropTypes`. This is a spartan solution, but works well. This is an area for possible future improvement.
 
 ## Todo
+- Add multiple test permutations for `oneOf` and `oneOfType` propTypes
 - Support Better Typings
