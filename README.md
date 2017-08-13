@@ -38,13 +38,15 @@ import React from 'react';
 init(React.PropTypes)
 ```
 
-And add this line to your `jest` config.
+And add `setupTestFrameworkScriptFile` property to your `jest` config.
+
 ```json
 "jest": {
   "setupTestFrameworkScriptFile": "<rootDir>/scripts/jest/init.js",
 }
 ```
-This will test jest to run this file before your test run commences.
+
+This will tell jest to execute this file before your test run commences.
 
 ## API
 
