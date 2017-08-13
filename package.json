@@ -1,5 +1,5 @@
 {
-  "name": "react-snapper",
+  "name": "jest-snapper",
   "version": "0.1.0",
   "description": "Effortless snapshot testing for React Apps.",
   "main": "lib/index.js",
