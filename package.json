@@ -1,6 +1,6 @@
 {
   "name": "jest-snapper",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Effortless snapshot testing for React Apps.",
   "main": "lib/index.js",
   "repository": "https://github.com/nadeesha/react-snapper",
