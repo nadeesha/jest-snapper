@@ -1,3 +1,5 @@
+![](https://circleci.com/gh/nadeesha/jest-snapper.svg?style=shield&circle-token=:circle-token)
+
 # jest-snapper
 
 ## Introduction
