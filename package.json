@@ -3,7 +3,8 @@
   "version": "0.2.3",
   "description": "Effortless snapshot testing for React Apps.",
   "main": "lib/index.js",
-  "repository": "https://github.com/nadeesha/react-snapper",
+  "types": "lib/index.d.ts",
+  "repository": "https://github.com/nadeesha/jest-snapper",
   "author": "Nadeesha Cabral <nadeesha.cabral@gmail.com>",
   "license": "MIT",
   "scripts": {
