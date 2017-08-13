@@ -38,13 +38,15 @@ import React from 'react';
 init(React.PropTypes)
 ```
 
-And add this line to your `jest` config.
+And add `setupTestFrameworkScriptFile` property to your `jest` config.
+
 ```json
 "jest": {
   "setupTestFrameworkScriptFile": "<rootDir>/scripts/jest/init.js",
 }
 ```
-This will test jest to run this file before your test run commences.
+
+This will tell jest to execute this file before your test run commences.
 
 ## API
 
@@ -52,7 +54,7 @@ This will test jest to run this file before your test run commences.
 
 `init` is a one-time configuration that you must do before a test run. You should supply the same `PropTypes` package here that you'd use in your application. Be it `React.PropTypes` or the newer standalone `prop-types` npm package.
 
-```ts
+```js
 init(PropTypes: typeof React.PropTypes)
 ```
 
@@ -66,7 +68,7 @@ init(React.PropTypes);
 
 `test` will infer propTypes from your component's props and run a snapshot test with deterministic values.
 
-```ts
+```js
 test(
   description: string,
   component: typeof React.Component,
