@@ -12,7 +12,7 @@ Test happy:
 
 ```js
 // __tests__/SimpleStateless.jsx
-import { test } from 'react-snapper';
+import { test } from 'jest-snapper';
 import SimpleStateless from '../SimpleStateless.jsx'; // any React component with valid propTypes static property
 
 test('should render component', SimpleStateless); // jest-snapper will do  a snapshot test with auto-generated values for props.
@@ -31,7 +31,7 @@ jest-snapper needs to inject some helpers into `React.PropTypes` or the standalo
 Add this to your init.js script (or create one).
 ```js
 // scripts/jest/init.js
-import {init} from 'react-snapper';
+import { init } from 'jest-snapper';
 import React from 'react';
 
 // this injects some helpers into propTypes.
@@ -82,7 +82,7 @@ test(
 examples:
 
 ```js
-// Example 1: react-snapper will generate props for you
+// Example 1: jest-snapper will generate props for you
 test('simple test', MyComponent);
 
 // Example 2: You can selectively assign your own props
