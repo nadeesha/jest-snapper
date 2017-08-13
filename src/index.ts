@@ -1,4 +1,4 @@
-import * as React from 'React';
+import * as React from 'react';
 import injectToPropTypes from './injectToPropTypes';
 import runTest from './runTest';
 import * as _ from 'lodash';

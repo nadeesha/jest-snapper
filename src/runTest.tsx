@@ -1,4 +1,4 @@
-import * as React from 'React';
+import * as React from 'react';
 import * as ReactTestRenderer from 'react-test-renderer';
 
 const runTest = (
