@@ -1,6 +1,6 @@
+import * as React from 'React';
 import injectToPropTypes from './injectToPropTypes';
 import runTest from './runTest';
-import * as React from 'React';
 import * as _ from 'lodash';
 import constructProps from './constructProps';
 
