@@ -14,7 +14,7 @@ Test happy:
 import { test } from 'react-snapper';
 import SimpleStateless from '../SimpleStateless.jsx';
 
-test('should render component', SimpleStateless); // jest-snapper will do  a snapshot test with generated props
+test('should render component', SimpleStateless); // jest-snapper will do  a snapshot test with auto-generated values for props.
 ```
 
 Given a sample  your React Component:
@@ -114,4 +114,5 @@ To minimize the effort needed to introduce this library to an existing codebase,
 
 ## Todo
 - Add multiple test permutations for `oneOf` and `oneOfType` propTypes
+- Expose mock data generator and allow the user to override it
 - Support Better Typings
