@@ -52,7 +52,7 @@ This will test jest to run this file before your test run commences.
 
 `init` is a one-time configuration that you must do before a test run. You should supply the same `PropTypes` package here that you'd use in your application. Be it `React.PropTypes` or the newer standalone `prop-types` npm package.
 
-```ts
+```js
 init(PropTypes: typeof React.PropTypes)
 ```
 
@@ -66,7 +66,7 @@ init(React.PropTypes);
 
 `test` will infer propTypes from your component's props and run a snapshot test with deterministic values.
 
-```ts
+```js
 test(
   description: string,
   component: typeof React.Component,
