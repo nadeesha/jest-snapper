@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<div
+  bar={1337}
+  brooklyn="stringval"
+  buffalo={
+    Array [
+      1337,
+      1337,
+      1337,
+      1337,
+      1337,
+    ]
+  }
+  cali={
+    Object {
+      "one": <span
+        className="element"
+    >
+        anyValue
+    </span>,
+      "two": <span
+        className="element"
+    >
+        anyValue
+    </span>,
+    }
+  }
+  denver="foo"
+  elpaso={
+    Object {
+      "chilli": Object {
+        "con": Object {
+          "carne": "stringval",
+          "delisioso": <span
+            className="node"
+    >
+            anyValue
+    </span>,
+        },
+      },
+    }
+  }
+  foo="stringval"
+  foobarosa={1337}
+  michigan={
+    Object {
+      "bar": 1337,
+      "brooklyn": "stringval",
+      "denver": "foo",
+      "foo": "stringval",
+    }
+  }
+  sanfran={
+    <span
+      className="node"
+    >
+      anyValue
+    </span>
+  }
+>
+  <span
+    bar={1337}
+    brooklyn="stringval"
+    buffalo={
+      Array [
+        1337,
+        1337,
+        1337,
+        1337,
+        1337,
+      ]
+    }
+    cali={
+      Object {
+        "one": <span
+          className="element"
+      >
+          anyValue
+      </span>,
+        "two": <span
+          className="element"
+      >
+          anyValue
+      </span>,
+      }
+    }
+    denver="foo"
+    elpaso={
+      Object {
+        "chilli": Object {
+          "con": Object {
+            "carne": "stringval",
+            "delisioso": <span
+              className="node"
+      >
+              anyValue
+      </span>,
+          },
+        },
+      }
+    }
+    foo="stringval"
+    foobarosa={1337}
+    michigan={
+      Object {
+        "bar": 1337,
+        "brooklyn": "stringval",
+        "denver": "foo",
+        "foo": "stringval",
+      }
+    }
+    sanfran={
+      <span
+        className="node"
+      >
+        anyValue
+      </span>
+    }
+  />
+</div>
+`;
+
+exports[`should render with state and props 1`] = `
+<div>
+  <span
+    badaboooong="badabing"
+    className="props"
+    some={
+      Object {
+        "any": "anyValue",
+      }
+    }
+  />
+  <span
+    badabing="badaboooong"
+    className="state"
+  />
+</div>
+`;
