@@ -1,6 +1,6 @@
-![](https://circleci.com/gh/nadeesha/jest-snapper.svg?style=shield&circle-token=:circle-token)
-
 # jest-snapper
+
+![](https://circleci.com/gh/nadeesha/jest-snapper.svg?style=shield&circle-token=:circle-token)
 
 ## Introduction
 
@@ -9,31 +9,13 @@ Automatically generate jest based snapshot tests for your React components by in
 ## Example
 
 Test happy:
+
 ```js
 // __tests__/SimpleStateless.jsx
 import { test } from 'react-snapper';
-import SimpleStateless from '../SimpleStateless.jsx';
+import SimpleStateless from '../SimpleStateless.jsx'; // any React component with valid propTypes static property
 
 test('should render component', SimpleStateless); // jest-snapper will do  a snapshot test with auto-generated values for props.
-```
-
-Given a sample  your React Component:
-```jsx
-// SimpleStateless.jsx
-
-const SimpleStateless = props =>
-  <div id={props.id}>
-    <span>{props.name.firstName}</span>
-    <span>{props.name.lastName}</span>
-  </div>;
-
-SimpleStateless.propTypes = {
-  id: React.PropTypes.number.isRequired,
-  name: React.PropTypes.shape({
-    firstName: React.PropTypes.string,
-    lastName: React.PropTypes.string,
-  })
-}
 ```
 
 ## Installation and Configuration
@@ -59,36 +41,44 @@ init(React.PropTypes)
 And add this line to your `jest` config.
 ```json
 "jest": {
-    ...
-    "setupTestFrameworkScriptFile": "<rootDir>/scripts/jest/init.js",
-    ...
+  "setupTestFrameworkScriptFile": "<rootDir>/scripts/jest/init.js",
 }
 ```
 This will test jest to run this file before your test run commences.
 
 ## API
+
 ### init
+
 `init` is a one-time configuration that you must do before a test run. You should supply the same `PropTypes` package here that you'd use in your application. Be it `React.PropTypes` or the newer standalone `prop-types` npm package.
+
 ```ts
 init(PropTypes: typeof React.PropTypes)
 ```
+
 example:
+
 ```
 init(React.PropTypes);
 ```
+
 ### test
+
 `test` will infer propTypes from your component's props and run a snapshot test with deterministic values.
+
 ```ts
 test(
   description: string,
   component: typeof React.Component,
   {
-	props: any,
-	state: any,
+    props: any,
+    state: any,
   }
 )
 ```
+
 examples:
+
 ```
 // Example 1: react-snapper will generate props for you
 test('simple test', MyComponent);
@@ -110,9 +100,11 @@ test('with a state change', MyComponent, {
 ```
 
 ## Caveats
+
 To minimize the effort needed to introduce this library to an existing codebase, I've made the decision to inject fake data generators (yes, like a cowboy) into `PropTypes`. This is a spartan solution, but works well. This is an area for possible future improvement.
 
 ## Todo
+
 - Add multiple test permutations for `oneOf` and `oneOfType` propTypes
 - Expose mock data generator and allow the user to override it
 - Support Better Typings
