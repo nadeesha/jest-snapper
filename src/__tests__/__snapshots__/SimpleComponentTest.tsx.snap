@@ -44,7 +44,6 @@ exports[`should render 1`] = `
   }
   foo="stringval"
   foobarosa={1337}
-  idaho="todolo"
   michigan={
     Object {
       "bar": 1337,
@@ -104,7 +103,6 @@ exports[`should render 1`] = `
     }
     foo="stringval"
     foobarosa={1337}
-    idaho="todolo"
     michigan={
       Object {
         "bar": 1337,
@@ -120,6 +118,24 @@ exports[`should render 1`] = `
         anyValue
       </span>
     }
+  />
+</div>
+`;
+
+exports[`should render with state and props 1`] = `
+<div>
+  <span
+    badaboooong="badabing"
+    className="props"
+    some={
+      Object {
+        "any": "anyValue",
+      }
+    }
+  />
+  <span
+    badabing="badaboooong"
+    className="state"
   />
 </div>
 `;

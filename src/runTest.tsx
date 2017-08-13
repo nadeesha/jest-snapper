@@ -11,7 +11,7 @@ const runTest = (
     const renderer = ReactTestRenderer.create(<Component {...props} />);
 
     if (state) {
-      renderer.getInstance().setState();
+      renderer.getInstance().setState(state);
     }
 
     expect(renderer.toJSON()).toMatchSnapshot();

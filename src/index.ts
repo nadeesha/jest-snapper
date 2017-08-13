@@ -14,10 +14,10 @@ export const init = injectToPropTypes;
 export const test = (
   description: string,
   Component: React.ComponentClass<any> | React.StatelessComponent<{}>,
-  options: IOptions
+  options?: IOptions
 ) => {
-  const props = { ...constructProps(Component.propTypes), ...options.props };
-  const state = options.state;
+  const props = { ...constructProps(Component.propTypes), ...options && options.props };
+  const state = options && options.state;
 
   runTest(description, Component, props, state);
 };

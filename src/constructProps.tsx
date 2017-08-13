@@ -31,10 +31,32 @@ export const ValueGenerators = {
   shape: shape => constructProps(shape)
 };
 
+const warnAndExit = failedKey => {
+  const message = [
+    `jest-snapper failed to derive mock data for your propType "${failedKey}"\n`,
+    `This could be because`,
+    `  1. You defined and incorrect propType for ${failedKey}`,
+    `  2. You forgot to initialize jest snapper with init(PropTypes) from your jest init script. (See docs)`,
+    `  3. You called init with a different PropTypes import package than the one you're using in the component`,
+    `      ex: Mixing React.PropTypes and 'prop-types' package`,
+    `  4. We do not yet supprt ${failedKey} (in which case, please file an issue)\n`,
+    `  jest-snapper will skip this prop - possibly leading to an incorrect snapshot.`
+  ].join('\n');
+
+  console.log(message);
+};
+
 // TODO: fix typings
 const constructProps = (propTypes: any) =>
   _(propTypes)
-    .mapValues((value, key) => (value as any).__jestSnapper__.fake())
+    .mapValues((value: any, key: string) => {
+      if (!value.__jestSnapper__) {
+        warnAndExit(key);
+        return;
+      }
+
+      return value.__jestSnapper__.fake();
+    })
     .value();
 
 export default constructProps;
