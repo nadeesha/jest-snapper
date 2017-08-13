@@ -60,7 +60,7 @@ init(PropTypes: typeof React.PropTypes)
 
 example:
 
-```
+```js
 init(React.PropTypes);
 ```
 
@@ -81,7 +81,7 @@ test(
 
 examples:
 
-```
+```js
 // Example 1: react-snapper will generate props for you
 test('simple test', MyComponent);
 
