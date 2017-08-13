@@ -14,7 +14,7 @@ dependencies:
   pre:
     - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
   override:
-    - yarn install
+    - npm install
 
 ## Customize test commands
 test:
