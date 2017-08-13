@@ -1,6 +1,6 @@
 {
   "name": "react-snapper",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Effortless snapshot testing for React Apps.",
   "main": "lib/index.js",
   "repository": "https://github.com/nadeesha/react-snapper",
