@@ -4,7 +4,7 @@
 
 ## Introduction
 
-`react-snapper` generates mock props for a given React component, based on it's `propTypes`. Then it does a snapshot test for the component. Think - one line snapshot tests for your react components.
+`react-snapper` generates mock props for a given React component, based on it's `propTypes`. Then it does a `jest` snapshot test for the component. Think - one line snapshot tests for your react components.
 
 ## Example
 
@@ -18,6 +18,7 @@ test('should render component', MyReactComponent);
 
 ### 1. Install:
 ```bash
+yarn add jest
 yarn add jest-snapper
 ```
 
