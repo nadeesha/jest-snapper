@@ -10,7 +10,9 @@
 
 ```js
 // __tests__/MyReactComponent.jsx
+
 import { test } from 'jest-snapper';
+
 test('should render component', MyReactComponent); 
 ```
 
