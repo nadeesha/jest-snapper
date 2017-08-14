@@ -4,18 +4,14 @@
 
 ## Introduction
 
-Automatically generate jest based snapshot tests for your React components by inferring props through `propTypes` definition.
+`react-snapper` generates mock props for a given React component, based on it's `propTypes`. Then it does a snapshot test for the component. Think - one line snapshot tests for your react components.
 
 ## Example
 
-Test happy:
-
 ```js
-// __tests__/SimpleStateless.jsx
+// __tests__/MyReactComponent.jsx
 import { test } from 'jest-snapper';
-import SimpleStateless from '../SimpleStateless.jsx'; // any React component with valid propTypes static property
-
-test('should render component', SimpleStateless); // jest-snapper will do  a snapshot test with auto-generated values for props.
+test('should render component', MyReactComponent); 
 ```
 
 ## Installation and Configuration
