@@ -59,7 +59,7 @@ test('with some overriden props', MyComponent, {
 // before the snapshot is taken.
 test('with a state change', MyComponent, {
   state: {
-	textInputValue: 'foobar',
+    textInputValue: 'foobar',
   },
 });
 ```
