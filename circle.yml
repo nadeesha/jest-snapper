@@ -1,27 +1,27 @@
-## Customize the test machine
 machine:
 
   timezone:
     Australia/Melbourne # Set the timezone
 
-  # Add some environment variables
   environment:
     CIRCLE_ENV: test
     NODE_ENV: test
 
-## Customize dependencies
 dependencies:
   pre:
     - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
   override:
     - yarn
 
-## Customize test commands
 test:
   override:
     - yarn test
 
 deployment:
+  coveralls:
+    branch: master
+    commands:
+      - yarn coveralls
   npm:
     tag: /v[0-9]+(\.[0-9]+)*/
     commands:

@@ -1,67 +1,31 @@
-# jest-snapper
+![](https://circleci.com/gh/nadeesha/jest-snapper.svg?style=shield&circle-token=:circle-token) [![npm version](https://badge.fury.io/js/jest-snapper.svg)](https://badge.fury.io/js/jest-snapper)
 
-![](https://circleci.com/gh/nadeesha/jest-snapper.svg?style=shield&circle-token=:circle-token)
+# jest-snapper
 
 ## Introduction
 
 `jest-snapper` generates mock props for a given React component, based on it's `propTypes`. Then it does a `jest` snapshot test for the component. Think - one line snapshot tests for your react components.
 
+## Prerequisites
+
+`jest-snapper` assumes you run it through [jest](https://facebook.github.io/jest/). It makes advantage of the built-in snapshot testing capability of jest.
+
 ## Example
 
 ```js
 // __tests__/MyReactComponent.jsx
-
 import { test } from 'jest-snapper';
 
-test('should render component', MyReactComponent); 
+test('should render component', MyReactComponent);
 ```
 
-## Installation and Configuration
+## Installation
 
-### 1. Install:
 ```bash
-yarn add jest
 yarn add jest-snapper
 ```
 
-### 2. Confgure `init` step:
-jest-snapper needs to inject some helpers into `React.PropTypes` or the standalone `prop-types` package, depending on which one you're using.
-
-Add this to your init.js script (or create one).
-```js
-// scripts/jest/init.js
-import { init } from 'jest-snapper';
-import React from 'react';
-
-// this injects some helpers into propTypes.
-init(React.PropTypes)
-```
-
-And add `setupTestFrameworkScriptFile` property to your `jest` config.
-
-```json
-"jest": {
-  "setupTestFrameworkScriptFile": "<rootDir>/scripts/jest/init.js",
-}
-```
-
-This will tell jest to execute this file before your test run commences.
-
 ## API
-
-### init
-
-`init` is a one-time configuration that you must do before a test run. You should supply the same `PropTypes` package here that you'd use in your application. Be it `React.PropTypes` or the newer standalone `prop-types` npm package.
-
-```js
-init(PropTypes: typeof React.PropTypes)
-```
-
-example:
-
-```js
-init(React.PropTypes);
-```
 
 ### test
 
@@ -72,8 +36,8 @@ test(
   description: string,
   component: typeof React.Component,
   {
-    props: any,
-    state: any,
+    props: any?, // optional
+    state: any?, // optional
   }
 )
 ```
@@ -85,7 +49,7 @@ examples:
 test('simple test', MyComponent);
 
 // Example 2: You can selectively assign your own props
-test('with some overriden props', MyComponent, { 
+test('with some overriden props', MyComponent, {
   props: {
     age: '42',
   },
@@ -108,4 +72,4 @@ To minimize the effort needed to introduce this library to an existing codebase,
 
 - Add multiple test permutations for `oneOf` and `oneOfType` propTypes
 - Expose mock data generator and allow the user to override it
-- Support Better Typings
+- Support better Typescript Typings

@@ -1,5 +1,6 @@
 import { ValueGenerators } from './constructProps';
 import * as _ from 'lodash';
+import * as PropTypes from 'prop-types';
 
 const getInfusion = (key, values?) => {
   if (!ValueGenerators[key]) {
@@ -9,18 +10,22 @@ const getInfusion = (key, values?) => {
   return { fake: () => ValueGenerators[key](values) };
 };
 
-const mutateWithSnapperObj = (obj: any, key, types?) => {
-  obj.__jestSnapper__ = getInfusion(key, types);
-};
+const mutateWithSnapperObj = (obj: any, key, types?) =>
+  Object.assign(obj, {
+    __jestSnapper__: getInfusion(key, types)
+  });
 
-const injectToPropTypes = (propTypes) =>
+const mutatePropTypes = propTypes =>
   _.forOwn(propTypes, (value, key) => {
-    if (value.isRequired) { 
+    if (value.isRequired) {
       // primitive proptypes
       mutateWithSnapperObj(value, key);
       mutateWithSnapperObj(value.isRequired, key);
-      propTypes[key] = value;
-    } else { 
+
+      Object.assign(propTypes, {
+        [key]: value
+      });
+    } else {
       // complex proptypes
       const originalFn = value;
 
@@ -29,9 +34,35 @@ const injectToPropTypes = (propTypes) =>
         mutateWithSnapperObj(retValue, key, ...args);
         mutateWithSnapperObj(retValue.isRequired, key, ...args);
         return retValue;
+      };
+
+      Object.assign(propTypes, {
+        [key]: wrappedFn
+      });
+    }
+  });
+
+const POSSIBLE_PROPTYPES = [
+  () => require('prop-types'),
+  () => require('react').PropTypes
+];
+
+const injectToPropTypes = () =>
+  _(POSSIBLE_PROPTYPES).each(requireProptypes => {
+    try {
+      const propTypes = requireProptypes();
+
+      if (propTypes.__jestSnapper__) {
+        return;
       }
 
-      propTypes[key] = wrappedFn;
+      mutatePropTypes(propTypes);
+
+      propTypes.__jestSnapper__ = {
+        patched: true
+      };
+    } catch (e) {
+      // TODO: initialize debug and log here.
     }
   });
 
