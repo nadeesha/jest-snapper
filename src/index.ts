@@ -11,6 +11,12 @@ export interface IOptions {
   state?: any;
 }
 
+// @t "exits process" init(spy('exit')) ~expect spy('exit').args[0][0] === 1
+export const init = (exit = process.exit) => {
+  console.error('As of jest-snapper@0.3.0, you do not need to run init. Please remove this step.');
+  exit(1);
+}
+
 export const test = (
   description: string,
   Component: React.ComponentClass<any> | React.StatelessComponent<{}>,
