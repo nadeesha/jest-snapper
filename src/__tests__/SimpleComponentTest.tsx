@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { test, init } from '../index';
+import snaptest from '../index';
 import * as PropTypes from 'prop-types';
 
 const SimpleStateless: React.StatelessComponent<any> = props =>
@@ -52,9 +52,9 @@ SimpleStateless.propTypes = {
   })
 };
 
-test('should render', SimpleStateless);
+snaptest('should render', SimpleStateless);
 
-test('should render with state and props', SimpleStateful, {
+snaptest('should render with state and props', SimpleStateful, {
   state: {
     badabing: 'badaboooong'
   },
