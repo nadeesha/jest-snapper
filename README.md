@@ -8,15 +8,15 @@
 
 ## Prerequisites
 
-`jest-snapper` assumes you run it through [jest](https://facebook.github.io/jest/). It makes advantage of the built-in snapshot testing capability of jest.
+`jest-snapper` assumes (and requires) you run it through [jest](https://facebook.github.io/jest/). It makes advantage of the built-in snapshot testing capability of jest.
 
 ## Example
 
 ```js
 // __tests__/MyReactComponent.jsx
-import { test } from 'jest-snapper';
+import snaptest from 'jest-snapper';
 
-test('should render component', MyReactComponent);
+snaptest('should render component', MyReactComponent);
 ```
 
 ## Installation
@@ -27,12 +27,18 @@ yarn add jest-snapper
 
 ## API
 
-### test
-
-`test` will infer propTypes from your component's props and run a snapshot test with deterministic values.
+It has one export, which is default.
 
 ```js
-test(
+import snaptest from 'jest-snapper';
+// or
+const snaptest = require('jest-snapper');
+```
+
+This will infer propTypes from your component's props and run a snapshot test with deterministic values.
+
+```js
+snaptest(
   description: string,
   component: typeof React.Component,
   {
@@ -46,10 +52,10 @@ examples:
 
 ```js
 // Example 1: jest-snapper will generate props for you
-test('simple test', MyComponent);
+snaptest('simple test', MyComponent);
 
 // Example 2: You can selectively assign your own props
-test('with some overriden props', MyComponent, {
+snaptest('with some overriden props', MyComponent, {
   props: {
     age: '42',
   },
@@ -57,7 +63,7 @@ test('with some overriden props', MyComponent, {
 
 // Example 3: Setting `state` will trigger a `this.setState`
 // before the snapshot is taken.
-test('with a state change', MyComponent, {
+snaptest('with a state change', MyComponent, {
   state: {
     textInputValue: 'foobar',
   },
